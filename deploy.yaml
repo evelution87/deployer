@@ -6,6 +6,7 @@ config:
   repository: 'https://github.com/evelution87/deployer.git'
   config_file: ~/.ssh/config
   php_fpm_version: '8.1'
+  keep_releases: 5
 
 hosts:
   production:
