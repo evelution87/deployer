@@ -1,0 +1,40 @@
+import:
+  - recipe/laravel.php
+
+config:
+  application: 'deployer'
+  repository: 'https://github.com/evelution87/Deployer-Test.git'
+  config_file: ~/.ssh/config
+  php_fpm_version: '8.1'
+
+hosts:
+  production:
+    hostname: deployer.evelution.net
+    remote_user: root
+    deploy_path: '/var/www/{{hostname}}'
+
+tasks:
+  deploy:
+    - deploy:prepare
+    - deploy:vendors
+    - artisan:storage:link
+    - artisan:config:cache
+    - artisan:route:cache
+    - artisan:view:cache
+    - artisan:event:cache
+    - artisan:migrate
+    - npm:install
+    - npm:run:prod
+    - deploy:publish
+  npm:install:
+    - run: 'cd {{release_or_current_path}} && npm install'
+  build:
+    - run: 'cd {{release_or_current_path}} && npm run build'
+    #- run: uptime
+  npm:run:prod:
+    - run: 'cd {{release_or_current_path}} && npm run prod'
+  nginx:restart:
+    - run: 'service nginx restart'
+
+after:
+  deploy:failed: deploy:unlock
