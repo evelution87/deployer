@@ -26,6 +26,7 @@ tasks:
     - npm:install
     - npm:build
     - deploy:publish
+    - npm:uninstall
   npm:install:
     - run: 'cd {{release_or_current_path}} && npm install'
   npm:uninstall:
