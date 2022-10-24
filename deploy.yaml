@@ -3,7 +3,7 @@ import:
 
 config:
   application: 'deployer'
-  repository: 'https://github.com/evelution87/Deployer-Test.git'
+  repository: 'https://github.com/evelution87/deployer.git'
   config_file: ~/.ssh/config
   php_fpm_version: '8.1'
 
