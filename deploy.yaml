@@ -24,15 +24,14 @@ tasks:
     - artisan:event:cache
     - artisan:migrate
     - npm:install
-    - npm:run:prod
+    - npm:build
     - deploy:publish
   npm:install:
     - run: 'cd {{release_or_current_path}} && npm install'
-  build:
+  npm:uninstall:
+    - run: 'cd {{release_or_current_path}} && rm -rf node_modules'
+  npm:build:
     - run: 'cd {{release_or_current_path}} && npm run build'
-    #- run: uptime
-  npm:run:prod:
-    - run: 'cd {{release_or_current_path}} && npm run prod'
   nginx:restart:
     - run: 'service nginx restart'
 
