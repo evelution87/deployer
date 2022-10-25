@@ -21,7 +21,8 @@
                 <div class="p-6 bg-white border-b border-gray-200"
                      x-data="WorldClock({zones:['Australia/Sydney','US/Central','Europe/London']})">
 
-                    <div class="grid gap-2 text-lg">
+                    <h2 class="text-lg font-medium">World Clock</h2>
+                    <div class="grid md:grid-cols-3 gap-x-6 gap-y-3 text-lg">
                         <template x-for="zone in zones">
                             <div class="flex gap-4">
                                 <span x-text="zone" class="w-32"></span>
