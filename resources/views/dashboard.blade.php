@@ -12,13 +12,16 @@
                      x-data="WorldClock({zones:['Australia/Sydney','US/Central','Europe/London']})">
 
                     <h2 class="text-lg font-medium">World Clock</h2>
-                    <div class="grid md:grid-cols-3 gap-x-6 gap-y-3 text-lg">
+                    <div class="grid md:grid-cols-3 gap-x-6 gap-y-3 text-lg" x-cloak>
                         <template x-for="zone in zones">
                             <div class="grid gap-2 text-center">
                                 <span x-text="zone" class="font-bold"></span>
                                 <span x-text="dateTime.toLocaleTimeString('en-AU', {timeZone: zone})"></span>
                             </div>
                         </template>
+                    </div>
+                    <div x-show="loading">
+                        Loading...
                     </div>
 
                 </div>
@@ -33,7 +36,9 @@
                     dateTime: new Date(),
                     zones: data.zones || [],
                     interval: null,
+                    loading: true,
                     init() {
+                        this.loading = false;
                         this.interval = setInterval(() => {
                             this.dateTime = new Date();
                         }, 1000);
