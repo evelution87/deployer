@@ -5,7 +5,7 @@
         </h2>
     </x-slot>
 
-    <div class="py-12">
+    <div class="my-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 bg-white border-b border-gray-200"
@@ -23,6 +23,30 @@
                     <div x-show="loading">
                         Loading...
                     </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="my-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 bg-white border-b border-gray-200">
+
+                    <h2 class="text-lg font-medium">Ideas</h2>
+                    <ul>
+                        <li>Trello integration</li>
+                        <li>Budgie</li>
+                        <li>JSON parser</li>
+                        <li>PHP Serialize parser</li>
+                        <li>Unix Timestamp tool</li>
+                        <li>Laravel quickstart tool</li>
+                        <li>Symfony quickstart tool</li>
+                        <li>Demo for Alpine Tables</li>
+                        <li>FFXIV toolkit</li>
+                        <li>Tailwind toolkit</li>
+                    </ul>
 
                 </div>
             </div>
